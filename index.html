@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- ===== Google Analytics (GA4) 자리 =====
+     isaacmath.kr 전용 GA4 속성을 새로 만든 뒤, 이 주석을 통째로 지우고
+     그 자리에 GA4가 알려주는 gtag 스니펫 2줄(script 태그)을 붙여넣으세요.
+     ※ faithreason.kr 측정 ID(G-3Q85222YJN)를 재사용하면 두 사이트 데이터가 섞입니다.
+     ※ 위치는 반드시 이 자리(head 시작 직후, meta charset 앞)를 유지하세요.
+     ===== /Google Analytics ===== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaac Math — 중등 수학 강의노트</title>
+<meta name="description" content="개념 강의노트 + 인터랙티브 퀴즈 + 연습문제(기본·응용·심화). 중학교 수학을 학기별로 정리한 Isaac Math 강의노트입니다.">
+<meta property="og:title" content="Isaac Math — 중등 수학 강의노트">
+<meta property="og:description" content="개념 강의노트 + 인터랙티브 퀴즈 + 연습문제(기본·응용·심화)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://isaacmath.kr/">
+<link rel="canonical" href="https://isaacmath.kr/">
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#0f1830; --card:rgba(30,41,66,0.55); --card-solid:#162038;
+    --border:rgba(148,163,184,0.18); --text:#e7ecf3; --muted:#9aa7bd;
+    --green:#34d399; --green-d:#059669; --blue:#60a5fa; --orange:#fbbf24;
+    --red:#f87171; --purple:#c4b5fd; --gold:#fbbf24;
+    --radius:18px;
+  }
+  html.light{
+    --bg:#f3f5f9; --bg2:#eef1f7; --card:#ffffff; --card-solid:#ffffff;
+    --border:#e2e8f0; --text:#1a202c; --muted:#5b6675;
+    --green:#0f9d63; --green-d:#0b7a4d; --blue:#2563eb; --orange:#c2870b;
+    --red:#dc2626; --purple:#7c3aed; --gold:#b45309;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7;
+    min-height:100vh; display:flex; flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+    transition:background .25s ease, color .25s ease;
+  }
+  body::before{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(760px 420px at 12% -8%, rgba(52,211,153,.16), transparent 62%),
+      radial-gradient(680px 400px at 88% 4%, rgba(251,191,36,.12), transparent 60%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  }
+
+  /* ── 헤더 ── */
+  header{padding:64px 24px 44px; text-align:center;}
+  .pro-badge{
+    display:inline-block; padding:5px 18px; border-radius:20px;
+    font-size:.76rem; font-weight:800; letter-spacing:1.4px;
+    color:#3b2a05; background:linear-gradient(135deg,#fde68a,#fbbf24 55%,#f59e0b);
+    box-shadow:0 4px 18px rgba(251,191,36,.28); margin-bottom:20px;
+  }
+  header h1{
+    font-size:2.7rem; font-weight:800; letter-spacing:-.03em; line-height:1.25;
+    background:linear-gradient(120deg,var(--text) 20%, var(--green) 130%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .rule{width:74px; height:4px; border-radius:4px; margin:18px auto 16px;
+    background:linear-gradient(90deg,var(--green),var(--gold));}
+  header p.tagline{color:var(--muted); font-size:1.03rem; max-width:540px; margin:0 auto;}
+  .chip-row{display:flex; gap:9px; justify-content:center; flex-wrap:wrap; margin-top:22px;}
+  .chip{
+    font-size:.79rem; color:var(--muted); padding:5px 14px; border-radius:20px;
+    border:1px solid var(--border); background:var(--card);
+  }
+
+  /* ── 상단 툴 ── */
+  .tools{position:fixed; top:16px; right:16px; display:flex; gap:8px; z-index:50;}
+  .tool-btn{
+    font-family:inherit; font-size:.8rem; font-weight:600; color:var(--muted);
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:7px 13px; cursor:pointer; backdrop-filter:blur(8px);
+    transition:color .18s, border-color .18s;
+  }
+  .tool-btn:hover{color:var(--green); border-color:var(--green);}
+
+  /* ── 본문 ── */
+  main{flex:1; width:100%; max-width:940px; margin:0 auto; padding:26px 20px 84px;}
+  .sec-label{
+    font-size:.78rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase;
+    color:var(--muted); text-align:center; margin-bottom:26px;
+  }
+
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:720px){ .grid{grid-template-columns:1fr;} }
+
+  .card{
+    position:relative; overflow:hidden; display:flex; flex-direction:column; gap:13px;
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    padding:28px 26px 24px; text-decoration:none; color:var(--text);
+    backdrop-filter:blur(10px);
+    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+  }
+  .card.live::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg,var(--green),var(--gold));
+  }
+  .card.live:hover{
+    transform:translateY(-5px); border-color:rgba(52,211,153,.45);
+    box-shadow:0 14px 40px rgba(0,0,0,.28);
+  }
+  html.light .card.live:hover{box-shadow:0 14px 34px rgba(15,157,99,.16);}
+
+  .card.soon{border-style:dashed; opacity:.62; cursor:default;}
+
+  .c-top{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .c-course{font-size:.79rem; font-weight:800; letter-spacing:.6px; color:var(--green);}
+  .card.soon .c-course{color:var(--muted);}
+  .c-state{
+    font-size:.7rem; font-weight:800; letter-spacing:.4px; padding:3px 10px; border-radius:20px;
+    border:1px solid var(--border); color:var(--muted);
+  }
+  .c-state.studying{color:#3b2a05; background:linear-gradient(135deg,#fde68a,#fbbf24); border-color:transparent;}
+  .c-title{font-size:1.42rem; font-weight:800; letter-spacing:-.02em;}
+  .c-units{display:flex; flex-wrap:wrap; gap:7px;}
+  .u-tag{
+    font-size:.77rem; color:var(--muted); padding:4px 11px; border-radius:8px;
+    border:1px solid var(--border); background:rgba(148,163,184,.07);
+  }
+  html.light .u-tag{background:#f7f9fc;}
+  .c-go{
+    margin-top:auto; padding-top:6px; font-size:.92rem; font-weight:700; color:var(--green);
+    display:flex; align-items:center; gap:6px;
+  }
+  .card.live:hover .c-go .arrow{transform:translateX(4px);}
+  .c-go .arrow{transition:transform .22s ease;}
+  .c-soon-note{margin-top:auto; padding-top:6px; font-size:.88rem; color:var(--muted);}
+
+  /* ── 안내 박스 ── */
+  .info{
+    margin-top:34px; display:flex; gap:15px; align-items:flex-start;
+    background:var(--card); border:1px solid var(--border);
+    border-left:4px solid var(--gold); border-radius:14px; padding:22px 26px;
+    backdrop-filter:blur(10px);
+  }
+  .info .ico{font-size:1.45rem; flex-shrink:0; line-height:1.4;}
+  .info p{font-size:.92rem; color:var(--muted);}
+  .info strong{color:var(--text);}
+
+  footer{
+    text-align:center; padding:26px 20px 34px; font-size:.83rem; color:var(--muted);
+    border-top:1px solid var(--border);
+  }
+  footer .brand{font-weight:700; color:var(--text);}
+
+  @media(max-width:600px){
+    header{padding:56px 16px 34px;}
+    header h1{font-size:2.05rem;}
+    main{padding:20px 15px 64px;}
+    .card{padding:24px 20px 20px;}
+    .c-title{font-size:1.25rem;}
+    .tools{top:12px; right:12px;}
+    .info{padding:18px 18px; flex-direction:column; gap:9px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <button class="tool-btn" id="themeBtn" type="button">🌙 다크</button>
+</div>
+
+<header>
+  <span class="pro-badge">PRO</span>
+  <h1>Isaac Math</h1>
+  <div class="rule"></div>
+  <p class="tagline">개념 강의노트 + 인터랙티브 퀴즈 + 연습문제(기본·응용·심화).<br>중학교 수학을 학기 단위로 정리했습니다.</p>
+  <div class="chip-row">
+    <span class="chip">📘 개념 강의노트</span>
+    <span class="chip">✍️ 자동채점 퀴즈</span>
+    <span class="chip">📕 오답노트</span>
+    <span class="chip">🏆 진행률 저장</span>
+  </div>
+</header>
+
+<main>
+  <p class="sec-label">학기 선택</p>
+
+  <div class="grid" id="grid">
+
+    <a href="isaacmath_1-1_pro/" class="card live" data-course="1-1">
+      <div class="c-top">
+        <span class="c-course">중학교 1학년 · 1학기</span>
+        <span class="c-state" data-state="1-1">공개</span>
+      </div>
+      <div class="c-title">중1 1학기</div>
+      <div class="c-units">
+        <span class="u-tag">소인수분해</span>
+        <span class="u-tag">최대공약수와 최소공배수</span>
+        <span class="u-tag">정수와 유리수</span>
+        <span class="u-tag">유리수의 계산</span>
+        <span class="u-tag">문자와 식</span>
+        <span class="u-tag">일차방정식의 풀이</span>
+        <span class="u-tag">일차방정식의 활용</span>
+        <span class="u-tag">좌표평면과 그래프</span>
+        <span class="u-tag">정비례와 반비례</span>
+      </div>
+      <div class="c-go">학기 목차 열기 <span class="arrow">→</span></div>
+    </a>
+
+    <div class="card soon">
+      <div class="c-top">
+        <span class="c-course">중학교 1학년 · 2학기</span>
+        <span class="c-state">준비 중</span>
+      </div>
+      <div class="c-title">중1 2학기</div>
+      <div class="c-units">
+        <span class="u-tag">기본 도형</span>
+        <span class="u-tag">작도와 합동</span>
+        <span class="u-tag">평면도형</span>
+        <span class="u-tag">입체도형</span>
+        <span class="u-tag">통계</span>
+      </div>
+      <p class="c-soon-note">제작 예정입니다.</p>
+    </div>
+
+    <div class="card soon">
+      <div class="c-top">
+        <span class="c-course">중학교 2학년 · 1학기</span>
+        <span class="c-state">준비 중</span>
+      </div>
+      <div class="c-title">중2 1학기</div>
+      <div class="c-units">
+        <span class="u-tag">유리수와 순환소수</span>
+        <span class="u-tag">식의 계산</span>
+        <span class="u-tag">일차부등식</span>
+        <span class="u-tag">연립일차방정식</span>
+        <span class="u-tag">일차함수</span>
+      </div>
+      <p class="c-soon-note">제작 예정입니다.</p>
+    </div>
+
+    <div class="card soon">
+      <div class="c-top">
+        <span class="c-course">중학교 2학년 · 2학기</span>
+        <span class="c-state">준비 중</span>
+      </div>
+      <div class="c-title">중2 2학기</div>
+      <div class="c-units">
+        <span class="u-tag">삼각형의 성질</span>
+        <span class="u-tag">사각형의 성질</span>
+        <span class="u-tag">도형의 닮음</span>
+        <span class="u-tag">피타고라스 정리</span>
+        <span class="u-tag">확률</span>
+      </div>
+      <p class="c-soon-note">제작 예정입니다.</p>
+    </div>
+
+    <div class="card soon">
+      <div class="c-top">
+        <span class="c-course">중학교 3학년 · 1학기</span>
+        <span class="c-state">준비 중</span>
+      </div>
+      <div class="c-title">중3 1학기</div>
+      <div class="c-units">
+        <span class="u-tag">제곱근과 실수</span>
+        <span class="u-tag">다항식의 곱셈과 인수분해</span>
+        <span class="u-tag">이차방정식</span>
+        <span class="u-tag">이차함수</span>
+      </div>
+      <p class="c-soon-note">제작 예정입니다.</p>
+    </div>
+
+    <div class="card soon">
+      <div class="c-top">
+        <span class="c-course">중학교 3학년 · 2학기</span>
+        <span class="c-state">준비 중</span>
+      </div>
+      <div class="c-title">중3 2학기</div>
+      <div class="c-units">
+        <span class="u-tag">삼각비</span>
+        <span class="u-tag">원의 성질</span>
+        <span class="u-tag">통계</span>
+      </div>
+      <p class="c-soon-note">제작 예정입니다.</p>
+    </div>
+
+  </div>
+
+  <div class="info">
+    <span class="ico">💡</span>
+    <p><strong>어떻게 공부하나요?</strong><br>
+    학기를 고르면 단원 목차가 열립니다. 각 단원은 <strong>개념 학습 → 본문 퀴즈 → 오답노트 → 연습문제(기본·응용·심화)</strong> 순으로 이어지고, 앞 단계를 마쳐야 다음 단계가 열립니다. 진행 상황은 브라우저에 저장되니 <strong>중간에 닫아도 이어서</strong> 학습할 수 있어요.</p>
+  </div>
+</main>
+
+<footer>
+  <p><span class="brand">Isaac Math</span> · 중등 수학 강의노트</p>
+  <p style="margin-top:6px;">문의 : isaachyi79@gmail.com</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── 라이트/다크 토글 (기본 다크) ── */
+  var THEME_KEY = 'isaacmath_portal_theme';
+  var btn = document.getElementById('themeBtn');
+
+  function paint(mode){
+    if(mode === 'light'){
+      document.documentElement.classList.add('light');
+      btn.textContent = '☀️ 라이트';
+    }else{
+      document.documentElement.classList.remove('light');
+      btn.textContent = '🌙 다크';
+    }
+  }
+
+  var saved = null;
+  try{ saved = localStorage.getItem(THEME_KEY); }catch(e){}
+  paint(saved === 'light' ? 'light' : 'dark');
+
+  btn.addEventListener('click', function(){
+    var nowLight = document.documentElement.classList.contains('light');
+    var next = nowLight ? 'dark' : 'light';
+    paint(next);
+    try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
+  });
+
+  /* ── 학습 흔적 감지 ──
+     단원 파일은 isaacmath_note_[과정]-[단원]_v1 키에 진행상황을 저장한다.
+     같은 도메인이므로 포털에서도 읽을 수 있다. 해당 학기 키가 하나라도 있으면 '학습 중'으로 표시. */
+  try{
+    var courses = {};
+    for(var i = 0; i < localStorage.length; i++){
+      var k = localStorage.key(i);
+      var m = k && k.match(/^isaacmath_note_(\d+-\d+)-\d+_v\d+$/);
+      if(m){ courses[m[1]] = true; }
+    }
+    Object.keys(courses).forEach(function(c){
+      var el = document.querySelector('.c-state[data-state="' + c + '"]');
+      if(el){
+        el.textContent = '학습 중';
+        el.classList.add('studying');
+      }
+    });
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
