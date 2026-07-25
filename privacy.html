@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- ===== Google Analytics (GA4) 자리 =====
+     isaacmath.kr 전용 GA4 속성을 새로 만든 뒤, 이 주석을 통째로 지우고
+     그 자리에 GA4가 알려주는 gtag 스니펫 2줄(script 태그)을 붙여넣으세요.
+     ※ faithreason.kr 측정 ID(G-3Q85222YJN)를 재사용하면 두 사이트 데이터가 섞입니다.
+     ※ 포털 index.html 과 이 파일 두 곳 모두에 넣어야 합니다.
+     ===== /Google Analytics ===== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보처리방침 — Isaac Math</title>
+<meta name="description" content="Isaac Math(isaacmath.kr) 중등 수학 강의노트의 개인정보처리방침 — 방문 통계, 광고, 학습 진행 상황 저장에 관한 안내입니다.">
+<meta property="og:title" content="개인정보처리방침 — Isaac Math">
+<meta property="og:description" content="방문 통계, 광고, 학습 진행 상황 저장에 관한 안내">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://isaacmath.kr/privacy.html">
+<link rel="canonical" href="https://isaacmath.kr/privacy.html">
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#0f1830; --card:rgba(30,41,66,0.55); --card-solid:#162038;
+    --border:rgba(148,163,184,0.18); --text:#e7ecf3; --muted:#9aa7bd;
+    --green:#34d399; --blue:#60a5fa; --orange:#fbbf24; --gold:#fbbf24;
+    --radius:18px;
+  }
+  html.light{
+    --bg:#f3f5f9; --bg2:#eef1f7; --card:#ffffff; --card-solid:#ffffff;
+    --border:#e2e8f0; --text:#1a202c; --muted:#5b6675;
+    --green:#0f9d63; --blue:#2563eb; --orange:#c2870b; --gold:#b8860b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:
+      radial-gradient(900px 500px at -10% 10%, rgba(96,165,250,0.10), transparent 55%), var(--bg);
+    color:var(--text); line-height:1.75;
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .tools{position:absolute; top:18px; right:20px; display:flex; gap:8px;}
+  .mini-btn{
+    font-size:12.5px; color:var(--text); background:var(--card); border:1px solid var(--border);
+    border-radius:10px; padding:7px 12px; cursor:pointer; font-family:inherit;
+  }
+  .mini-btn:hover{border-color:var(--green);}
+  header{
+    position:relative; text-align:center; padding:64px 20px 34px;
+    border-bottom:1px solid var(--border);
+  }
+  .badge{
+    display:inline-block; font-size:.72rem; font-weight:800; letter-spacing:.08em;
+    color:var(--gold); border:1px solid var(--gold); border-radius:999px;
+    padding:4px 12px; margin-bottom:14px;
+  }
+  header h1{margin:0 0 10px; font-size:2rem; letter-spacing:-.02em;}
+  header p{margin:0; color:var(--muted); font-size:.94rem;}
+  .home{
+    display:inline-block; margin-top:18px; font-size:.86rem; color:var(--muted);
+    text-decoration:none; border-bottom:1px dashed var(--border); padding-bottom:2px;
+  }
+  .home:hover{color:var(--green); border-color:var(--green);}
+  main{max-width:820px; margin:0 auto; padding:32px 20px 70px;}
+  .meta{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    padding:16px 20px; font-size:.86rem; color:var(--muted); margin-bottom:32px;
+  }
+  section{margin-bottom:34px;}
+  h2{
+    font-size:1.16rem; margin:0 0 12px; padding-bottom:9px;
+    border-bottom:1px solid var(--border);
+  }
+  p{margin:0 0 12px;}
+  ul{margin:0 0 12px; padding-left:22px;}
+  li{margin-bottom:6px;}
+  a{color:var(--blue);}
+  strong{color:var(--text);}
+  .note{
+    background:var(--card); border:1px solid var(--border); border-left:3px solid var(--green);
+    border-radius:12px; padding:14px 18px; margin:14px 0 0; font-size:.92rem;
+  }
+  table{
+    width:100%; border-collapse:collapse; margin:12px 0 0; font-size:.92rem;
+    background:var(--card); border-radius:12px; overflow:hidden;
+  }
+  th,td{border:1px solid var(--border); padding:10px 13px; text-align:left; vertical-align:top;}
+  th{background:var(--bg2); font-weight:700; white-space:nowrap; width:26%;}
+  footer{
+    text-align:center; padding:26px 20px 34px; font-size:.83rem; color:var(--muted);
+    border-top:1px solid var(--border);
+  }
+  footer .brand{font-weight:700; color:var(--text);}
+  @media(max-width:600px){
+    header{padding:56px 16px 30px;}
+    header h1{font-size:1.6rem;}
+    main{padding:24px 15px 56px;}
+    .tools{top:12px; right:12px;}
+    th{width:34%; white-space:normal;}
+  }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <button class="mini-btn" id="themeBtn" type="button">☀️ 라이트 모드</button>
+</div>
+
+<header>
+  <span class="badge">PRIVACY</span>
+  <h1>개인정보처리방침</h1>
+  <p>Isaac Math 중등 수학 강의노트(isaacmath.kr)</p>
+  <a class="home" href="/">← Isaac Math 홈으로</a>
+</header>
+
+<main>
+
+  <div class="meta">
+    시행일자: 2026년 7월 25일 &nbsp;|&nbsp; 최종 수정일: 2026년 7월 25일 &nbsp;|&nbsp;
+    적용 범위: isaacmath.kr 및 하위 모든 페이지
+  </div>
+
+  <section>
+    <h2>1. 개요</h2>
+    <p><strong>Isaac Math</strong>(이하 "이 사이트")는 중학교 수학 개념과 연습문제를 정리한 교육 목적의 개인 제작 웹사이트이며, 도메인 <strong>isaacmath.kr</strong>을 통해 운영됩니다.</p>
+    <p>이 사이트는 회원가입이나 로그인 없이 누구나 열람할 수 있으며, 이용자가 <strong>이름·연락처·학교명 등 개인정보를 직접 입력하는 기능이 없습니다.</strong> 다만 사이트 이용 과정에서 아래와 같은 정보가 자동으로 수집되거나 이용자의 기기에 저장될 수 있어, 이를 투명하게 안내하고자 이 방침을 게시합니다.</p>
+  </section>
+
+  <section>
+    <h2>2. 학습 진행 상황의 저장 — 브라우저에만 저장됩니다</h2>
+    <p>강의노트에는 섹션 완료 표시, 퀴즈·연습문제 채점 결과, 오답노트, 잠금 해제 상태를 기억하는 기능이 있습니다. 이 기록은 브라우저의 <strong>로컬 스토리지(localStorage)</strong>에 저장됩니다.</p>
+    <ul>
+      <li>저장 위치는 <strong>이용자 본인의 기기(브라우저) 안</strong>이며, 운영자의 서버로 전송되지 않습니다. 운영자는 이 기록을 열람할 수 없습니다.</li>
+      <li>저장되는 값은 학습 진행 상태(완료한 섹션 번호, 문항별 정답 여부와 입력한 답)뿐이며, 이용자를 식별할 수 있는 정보는 포함하지 않습니다.</li>
+      <li>각 단원 페이지의 <strong>"초기화"</strong> 버튼을 누르거나 브라우저의 사이트 데이터 삭제 기능을 사용하면 언제든지 전부 지울 수 있습니다.</li>
+    </ul>
+    <div class="note">기기나 브라우저를 바꾸면 진행 상황이 이어지지 않는 것도 같은 이유입니다. 계정이 없으므로 기록이 서버에 보관되지 않습니다.</div>
+  </section>
+
+  <section>
+    <h2>3. 자동으로 수집되는 정보 — 방문 통계 분석</h2>
+    <p>이 사이트는 방문자 통계 분석을 위해 <strong>Google 애널리틱스(GA4)</strong>를 사용하거나, 도입을 준비 중일 수 있습니다. 어떤 단원이 많이 읽히는지, 자료가 실제로 도움이 되는지를 파악해 콘텐츠를 개선하기 위한 목적입니다.</p>
+    <p><strong>수집 항목</strong></p>
+    <ul>
+      <li>방문 페이지, 방문 경로, 체류 시간, 이전 방문 페이지(리퍼러)</li>
+      <li>기기 종류, 브라우저 종류, 화면 크기, 대략적인 지역(도시 단위 이하)</li>
+      <li>쿠키를 통해 생성되는 임의의 식별자(개인을 특정하지 않는 형태)</li>
+    </ul>
+    <p>이 정보는 Google이 운영하는 서버로 전송·처리되며, Google의 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">개인정보처리방침</a>이 함께 적용됩니다. 수집을 원하지 않으시면 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google 애널리틱스 차단 부가기능</a>을 사용하실 수 있습니다.</p>
+  </section>
+
+  <section>
+    <h2>4. 광고 서비스 안내 (Google 애드센스)</h2>
+    <p>이 사이트는 콘텐츠 제작·운영 비용 충당을 위해 <strong>Google 애드센스</strong> 광고를 게재하거나, 게재를 준비 중일 수 있습니다. Google과 제휴 광고 네트워크(제3자)는 쿠키를 사용하여 이용자가 이 사이트 및 다른 사이트를 방문한 기록을 바탕으로 관심 기반 광고를 게재할 수 있습니다.</p>
+    <table>
+      <tr><th>쿠키 사용 주체</th><td>Google 및 Google과 제휴한 광고 네트워크(제3자 공급업체)</td></tr>
+      <tr><th>목적</th><td>이전 방문 기록 기반의 맞춤형 광고 게재, 광고 성과 측정</td></tr>
+      <tr><th>거부 방법</th><td><a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google 광고 설정</a>에서 맞춤 광고 사용 안 함으로 변경, 또는 <a href="https://optout.aboutads.info/" target="_blank" rel="noopener">aboutads.info</a>에서 옵트아웃</td></tr>
+    </table>
+    <p style="margin-top:12px;">브라우저 설정에서 쿠키 저장 자체를 차단하거나 삭제할 수도 있습니다. 다만 이 경우 <strong>2항의 학습 진행 상황 저장 기능이 정상 작동하지 않을 수 있습니다.</strong></p>
+  </section>
+
+  <section>
+    <h2>5. 제3자 제공 및 위탁</h2>
+    <p>이 사이트는 위 3·4항에서 안내한 목적(방문 통계 분석, 광고 게재) 외의 용도로 개인정보를 제3자에게 제공하지 않습니다. 다만 Google 애널리틱스·Google 애드센스 서비스 이용 과정에서 자동 수집된 정보가 Google(및 Google과 제휴한 광고 네트워크)에 전달되며, 이는 각 서비스의 자체 개인정보처리방침에 따라 처리됩니다.</p>
+  </section>
+
+  <section>
+    <h2>6. 청소년 이용자에 대한 안내</h2>
+    <p>이 사이트의 콘텐츠는 <strong>중학생</strong>을 주된 대상으로 제작되었습니다. 그러나 이 사이트는 이용자로부터 이름·나이·학교·연락처 등 어떠한 개인정보도 직접 입력받지 않으며, 회원가입 절차가 없습니다.</p>
+    <p>앞서 안내한 자동 수집 정보(3·4항)는 이용자의 나이를 구분하지 않고 동일하게 적용됩니다. 자녀의 사이트 이용과 관련해 문의사항이 있으신 보호자께서는 아래 연락처로 문의해 주시기 바랍니다.</p>
+  </section>
+
+  <section>
+    <h2>7. 이용자의 권리</h2>
+    <ul>
+      <li>브라우저 설정을 통해 쿠키 저장을 거부하거나 기존 쿠키를 삭제할 권리</li>
+      <li>각 단원의 "초기화" 버튼 또는 브라우저 데이터 삭제로 학습 기록을 지울 권리(2항 참조)</li>
+      <li>Google 애널리틱스·애드센스의 맞춤 광고·통계 수집을 개별적으로 거부(옵트아웃)할 권리(3·4항 링크 참조)</li>
+      <li>이 사이트의 개인정보 처리에 관해 운영자에게 문의하고 답변을 받을 권리</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. 개인정보처리방침의 변경</h2>
+    <p>법령, 정책 또는 광고·분석 서비스의 변경에 따라 이 방침의 내용이 수정될 수 있습니다. 내용이 변경되는 경우 이 페이지 상단의 <strong>"최종 수정일"</strong>을 갱신하여 고지합니다.</p>
+  </section>
+
+  <section>
+    <h2>9. 문의처</h2>
+    <p>이 사이트의 개인정보 처리에 관해 궁금한 점이 있으시면 아래로 연락해 주세요.</p>
+    <div class="note">
+      <strong>Isaac Math 운영자</strong><br>
+      이메일 : <a href="mailto:isaachyi79@gmail.com">isaachyi79@gmail.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><span class="brand">Isaac Math</span> · 중등 수학 강의노트</p>
+  <p style="margin-top:6px;">문의 : isaachyi79@gmail.com</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var THEME_KEY = 'isaacmath_portal_theme';
+  var btn = document.getElementById('themeBtn');
+  function apply(light){
+    document.documentElement.classList.toggle('light', light);
+    btn.textContent = light ? '🌙 다크 모드' : '☀️ 라이트 모드';
+  }
+  var saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch(e){}
+  apply(saved === 'light');
+  btn.addEventListener('click', function(){
+    var light = !document.documentElement.classList.contains('light');
+    apply(light);
+    try { localStorage.setItem(THEME_KEY, light ? 'light' : 'dark'); } catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
