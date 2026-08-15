@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://isaacmath.kr/isaacmath_1-2_pro/</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -116,7 +116,13 @@
   </url>
   <url>
     <loc>https://isaacmath.kr/isaacmath_1-2_pro/note_1-2_8-9_%ED%9A%8C%EC%A0%84%EC%B2%B4%EC%99%80%EA%B2%89%EB%84%93%EC%9D%B4%EB%B6%80%ED%94%BC_PRO.html</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://isaacmath.kr/isaacmath_1-2_pro/note_1-2_10-11_%EB%8F%84%EC%88%98%EB%B6%84%ED%8F%AC%ED%91%9C%EC%99%80%EC%83%81%EB%8C%80%EB%8F%84%EC%88%98_PRO.html</loc>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
