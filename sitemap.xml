@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isaacmath.kr/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://isaacmath.kr/isaacmath_2-2_pro/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -242,7 +242,13 @@
   </url>
   <url>
     <loc>https://isaacmath.kr/isaacmath_2-2_pro/note_2-2_7-8_%EC%82%BC%EA%B0%81%ED%98%95%EC%9D%98%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC%EA%B3%BC%EB%8B%AE%EC%9D%8C%EC%9D%98%ED%99%9C%EC%9A%A9_PRO.html</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://isaacmath.kr/isaacmath_2-2_pro/note_2-2_9_%ED%94%BC%ED%83%80%EA%B3%A0%EB%9D%BC%EC%8A%A4%EC%A0%95%EB%A6%AC_PRO.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
